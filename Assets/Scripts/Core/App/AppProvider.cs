@@ -10,14 +10,6 @@ namespace MHL.Core.App
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Initialize()
         {
-            // AppProvider existingInstance = FindAnyObjectByType<AppProvider>();
-            //
-            // if (existingInstance != null)
-            // {
-            //     Debug.Log($"[AppProvider] Already initialized.");
-            //     return;
-            // }
-            
             if (_instance != null)
             {
                 Debug.Log($"[AppProvider] Already initialized.");
