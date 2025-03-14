@@ -1,6 +1,6 @@
 using System;
 
-namespace MHL.Tools.DI
+namespace MHL.Core.DependencyInjection
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method)]
     public class InjectAttribute : Attribute

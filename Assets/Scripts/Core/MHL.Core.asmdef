@@ -1,8 +1,11 @@
 {
-    "name": "MHL.Tools.DependencyInjection",
+    "name": "MHL.Core",
     "rootNamespace": "",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor",
+        "WindowsStandalone64"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

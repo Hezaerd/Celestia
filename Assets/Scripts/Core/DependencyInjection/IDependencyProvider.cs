@@ -1,4 +1,4 @@
-namespace MHL.Tools.DI
+namespace MHL.Core.DependencyInjection
 {
     public interface IDependencyProvider
     {
