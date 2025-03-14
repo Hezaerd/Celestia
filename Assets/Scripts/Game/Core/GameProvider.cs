@@ -1,7 +1,7 @@
 using MHL.Core.DependencyInjection;
 using UnityEngine;
 
-namespace Game.Core
+namespace MHL.Game.Core
 {
 	[DefaultExecutionOrder(-50)] // Ensure this runs AFTER AppProvider
 	public class GameProvider : MonoProvider

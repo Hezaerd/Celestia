@@ -1,8 +1,9 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Game.Core
+namespace MHL.Game.Core
 {
+	[DefaultExecutionOrder(-25)]
 	public class DebugBootstrapper : MonoBehaviour
 	{
 		[BoxGroup("Debug Settings")]
