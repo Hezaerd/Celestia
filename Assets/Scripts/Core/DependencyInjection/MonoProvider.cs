@@ -14,7 +14,7 @@ namespace MHL.Core.DependencyInjection
             System.Reflection.BindingFlags.NonPublic | 
             System.Reflection.BindingFlags.Instance;
         
-        public virtual void Awake()
+        protected virtual void Awake()
         {
             Container = new DependencyContainer();
             RegisterDependencies(Container);
