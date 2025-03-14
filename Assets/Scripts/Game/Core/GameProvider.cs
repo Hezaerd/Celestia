@@ -44,6 +44,7 @@ namespace MHL.Game.Core
 		public override void RegisterDependencies(IDependencyContainer container)
 		{
 			// Register core systems
+			container.RegisterSingleton<InputController>();
 			
 			Debug.Log("[GameProvider] Successfully registered dependencies.");
 		}
