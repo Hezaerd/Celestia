@@ -1,15 +1,50 @@
 using MHL.Core.DependencyInjection;
+using MHL.Game.Player;
 using UnityEngine;
 
 namespace MHL.Game.Core
 {
-	[DefaultExecutionOrder(-50)] // Ensure this runs AFTER AppProvider
 	public class GameProvider : MonoProvider
 	{
+		private static GameProvider _instance;
+		
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+		private static void Initialize()
+		{
+			if (_instance != null)
+			{
+				Debug.Log($"[GameProvider] Already initialized.");
+				return;
+			}
+
+			GameObject go = new GameObject("GameProvider");
+			_instance = go.AddComponent<GameProvider>();
+            
+			DontDestroyOnLoad(go);
+            
+			Debug.Log("[GameProvider] Successfully initialized.");
+		}
+
+		protected override void Awake()
+		{
+			// Check to make sure the class is a valid class instance
+			if (_instance != null && _instance != this)
+			{
+				Destroy(gameObject);
+				return;
+			}
+            
+			_instance = this;
+			DontDestroyOnLoad(gameObject);
+			
+			// Setup container and inject dependencies
+			base.Awake();
+		}
+
 		public override void RegisterDependencies(IDependencyContainer container)
 		{
-			// Register game dependencies here
-
+			// Register core systems
+			
 			Debug.Log("[GameProvider] Successfully registered dependencies.");
 		}
 	}
