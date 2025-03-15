@@ -13,7 +13,7 @@ namespace MHL.Game.Player
 		public Vector2 MoveInput { get; private set; }
 		public Vector2 LookInput { get; private set; }
 		public bool IsRunPressed { get; private set; }
-		public bool RollPressed { get; private set; }
+		public bool DodgePressed { get; private set; }
 		public bool PrimaryActionPressed { get; private set; }
 		public bool SecondaryActionPressed { get; private set; }
 		public bool SpecialActionPressed { get; private set; }
@@ -47,14 +47,6 @@ namespace MHL.Game.Player
 				MoveInput = Vector2.zero;
 		}
 		
-		public void OnLook(InputAction.CallbackContext context)
-		{
-			if(context.performed)
-				LookInput = context.ReadValue<Vector2>();
-			else if (context.canceled)
-				LookInput = Vector2.zero;
-		}
-		
 		public void OnInteract(InputAction.CallbackContext context)
 		{
 			if (context.started)
@@ -69,10 +61,10 @@ namespace MHL.Game.Player
 			}
 		}
 		
-		public void OnRoll(InputAction.CallbackContext context)
+		public void OnDodge(InputAction.CallbackContext context)
 		{
 			if (context.performed)
-				RollPressed = true;
+				DodgePressed = true;
 		}
 		
 		public void OnPrimaryAction(InputAction.CallbackContext context)
@@ -109,12 +101,17 @@ namespace MHL.Game.Player
 			else if (context.canceled)
 				IsRunPressed = false;
 		}
+		
+		public void OnZoom(InputAction.CallbackContext context)
+		{
+			// Not implemented
+		}
 		#endregion
 		
 		private void Update()
 		{
 			// Reset one-frame actions.
-			RollPressed = false;
+			DodgePressed = false;
 			PrimaryActionPressed = false;
 			SecondaryActionPressed = false;
 			SpecialActionPressed = false;
