@@ -1,3 +1,4 @@
+using System;
 using MHL.Core.DependencyInjection;
 using MHL.Game.Player;
 using UnityEngine;
@@ -7,23 +8,6 @@ namespace MHL.Game.Core
 	public class GameProvider : MonoProvider
 	{
 		private static GameProvider _instance;
-		
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-		private static void Initialize()
-		{
-			if (_instance != null)
-			{
-				Debug.Log($"[GameProvider] Already initialized.");
-				return;
-			}
-
-			GameObject go = new GameObject("GameProvider");
-			_instance = go.AddComponent<GameProvider>();
-            
-			DontDestroyOnLoad(go);
-            
-			Debug.Log("[GameProvider] Successfully initialized.");
-		}
 
 		protected override void Awake()
 		{
@@ -41,12 +25,34 @@ namespace MHL.Game.Core
 			base.Awake();
 		}
 
+		private void OnDestroy()
+		{
+			_instance = null;
+		}
+
 		public override void RegisterDependencies(IDependencyContainer container)
 		{
 			// Register core systems
 			container.RegisterSingleton<InputController>();
 			
 			Debug.Log("[GameProvider] Successfully registered dependencies.");
+		}
+		
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+		private static void Initialize()
+		{
+			if (_instance != null)
+			{
+				Debug.Log($"[GameProvider] Already initialized.");
+				return;
+			}
+
+			GameObject go = new GameObject("GameProvider");
+			_instance = go.AddComponent<GameProvider>();
+            
+			DontDestroyOnLoad(go);
+            
+			Debug.Log("[GameProvider] Successfully initialized.");
 		}
 	}
 }
