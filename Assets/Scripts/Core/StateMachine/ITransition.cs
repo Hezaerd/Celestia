@@ -1,4 +1,4 @@
-namespace Core.StateMachine
+namespace MHL.Core.StateMachine
 {
 	public interface ITransition
 	{

@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Core.StateMachine
+namespace MHL.Core.StateMachine
 {
-	public abstract class StateMachine
+	public class StateMachine
 	{
 		private StateNode _current;
 		private readonly Dictionary<Type, StateNode> _nodes = new Dictionary<Type, StateNode>();
 		private readonly HashSet<ITransition> _anyTransitions = new HashSet<ITransition>();
 
-		private void Update()
+		public void Update()
 		{
 			ITransition transition = GetTransition();
 			if (transition != null)
@@ -18,18 +18,18 @@ namespace Core.StateMachine
 			_current.State?.Update();
 		}
 		
-		private void FixedUpdate()
+		public void FixedUpdate()
 		{
 			_current.State?.FixedUpdate();
 		}
 		
-		private void SetState(IState state)
+		public void SetState(IState state)
 		{
 			_current = _nodes[state.GetType()];
 			_current.State?.OnEnter();
 		}
 
-		public void ChangeState(IState state)
+		private void ChangeState(IState state)
 		{
 			if (state == _current.State)
 				return;

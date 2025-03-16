@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.StateMachine
+namespace MHL.Core.StateMachine
 {
 	public class FuncPredicate : IPredicate
 	{
