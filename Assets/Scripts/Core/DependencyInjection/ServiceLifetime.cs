@@ -1,4 +1,4 @@
-namespace MHL.Core.DependencyInjection
+namespace Core.DependencyInjection
 {
     public enum ServiceLifetime
     {

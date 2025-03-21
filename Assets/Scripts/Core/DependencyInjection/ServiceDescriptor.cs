@@ -1,6 +1,6 @@
 using System;
 
-namespace MHL.Core.DependencyInjection
+namespace Core.DependencyInjection
 {
     public class ServiceDescriptor
     {

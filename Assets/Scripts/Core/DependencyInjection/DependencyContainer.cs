@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace MHL.Core.DependencyInjection
+namespace Core.DependencyInjection
 {
     public class DependencyContainer : IDependencyContainer
     {

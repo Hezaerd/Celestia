@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MHL.Core.StateMachine
+namespace Core.StateMachine
 {
 	public class StateMachine
 	{

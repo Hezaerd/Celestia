@@ -1,13 +1,13 @@
 using System;
+using Game.Entities.Components;
+using Game.Player.States;
 using KBCore.Refs;
-using MHL.Game.Entities.Components;
-using MHL.Core.StateMachine;
-using MHL.Core.DependencyInjection;
-using MHL.Game.Player.States;
+using Core.StateMachine;
+using Core.DependencyInjection;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MHL.Game.Player
+namespace Game.Player
 {
 	public class PlayerController : MonoBehaviour
 	{

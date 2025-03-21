@@ -1,4 +1,4 @@
-namespace MHL.Core.StateMachine
+namespace Core.StateMachine
 {
 	public interface IPredicate
 	{

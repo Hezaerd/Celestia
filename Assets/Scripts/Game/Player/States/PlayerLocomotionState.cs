@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MHL.Game.Player.States
+namespace Game.Player.States
 {
 	public class PlayerLocomotionState : PlayerBaseState
 	{

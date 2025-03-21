@@ -1,7 +1,7 @@
-using MHL.Core.StateMachine;
+using Core.StateMachine;
 using UnityEngine;
 
-namespace MHL.Game.Player.States
+namespace Game.Player.States
 {
 	public abstract class PlayerBaseState : IState
 	{

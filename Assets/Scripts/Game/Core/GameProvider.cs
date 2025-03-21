@@ -1,9 +1,9 @@
 using System;
-using MHL.Core.DependencyInjection;
-using MHL.Game.Player;
+using Game.Player;
+using Core.DependencyInjection;
 using UnityEngine;
 
-namespace MHL.Game.Core
+namespace Game.Core
 {
 	public class GameProvider : MonoProvider
 	{

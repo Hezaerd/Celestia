@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace MHL.Game.Player
+namespace Game.Player
 {
 	public class InputController : MonoBehaviour, PlayerControls_Actions.IPlayerActions
 	{

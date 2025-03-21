@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MHL.Game.Entities.Components
+namespace Game.Entities.Components
 {
 	public class GroundChecker : MonoBehaviour
 	{

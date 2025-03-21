@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MHL.Core.DependencyInjection
+namespace Core.DependencyInjection
 {
     public interface IDependencyContainer
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
 
-namespace MHL.Core.Logs
+namespace Core.Logs
 {
 	public static class Logz
 	{

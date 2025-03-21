@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-namespace MHL.Core.DependencyInjection
+namespace Core.DependencyInjection
 {
     [DefaultExecutionOrder(-100)]
     public abstract class MonoProvider : MonoBehaviour, IDependencyProvider
