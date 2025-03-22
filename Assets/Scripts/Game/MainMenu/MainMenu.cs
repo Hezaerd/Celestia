@@ -8,7 +8,7 @@ namespace Game.MainMenu
 {
 	public class MainMenu : MonoBehaviour
 	{
-		[SerializeField] private GameObject debugPanel;
+		[SerializeField, Required] private GameObject debugPanel;
 		[SerializeField, Required] private GameObject homePanel;
 		[SerializeField, Required] private GameObject soloPanel;
 		[SerializeField, Required] private GameObject multiPanel;
@@ -26,10 +26,7 @@ namespace Game.MainMenu
 		private void Awake()
 		{
 			SetupStateMachine();
-			
-#if UNITY_EDITOR
 			SetupDebugPanel();
-#endif
 		}
 
 		private void SetupStateMachine()
