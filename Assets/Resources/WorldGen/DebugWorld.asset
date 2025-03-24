@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c73ee161fb4d5d9ae926f51dcc1734, type: 3}
+  m_Name: DebugWorld
+  m_EditorClassIdentifier: 
+  width: 128
+  height: 128
+  seed: 12345
+  useRandomSeed: 0
+  tileWidth: 2
+  tileHeight: 1
+  noiseScale: 2.78
+  octaves: 8
+  persistence: 0.5
+  lacunarity: 2
+  terrainTypes:
+  - {fileID: 11400000, guid: b1083b2cc9b26ec4d8e0e1a438ea5baa, type: 2}
+  - {fileID: 11400000, guid: 9cee688eeb50c19449a915ed9f423aac, type: 2}
+  - {fileID: 11400000, guid: f768b3363234a384896bbe3976fb41dc, type: 2}
+  defaultTerrainType: {fileID: 0}
+  chunkSize: 16
+  viewDistance: 20

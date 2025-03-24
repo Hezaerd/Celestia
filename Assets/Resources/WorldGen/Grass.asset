@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b34106604d44c28028195874670d6c, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: 
+  terrainName: Grass
+  tileSprite: {fileID: -2915582255638090879, guid: 6ec815c00cb615743add2bde46a48fac, type: 3}
+  tilePrefab: {fileID: 2109832669215745504, guid: 0f36816ea58dc58489a2b6064f2f6ea2, type: 3}
+  mapColor: {r: 1, g: 1, b: 1, a: 1}
+  isWalkable: 1
+  movementCost: 1
+  minThreshold: 0
+  maxThreshold: 1
