@@ -1,12 +1,15 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Game.World
 {
-	public struct TileData
+	[CreateAssetMenu(fileName = "New Tile", menuName = "Game/World/Tile", order = 0)]
+	public class TileData : ScriptableObject
 	{
-		public Vector2Int Position;
-		public Vector2 WorldPosition;
-		public TerrainTypeSO TerrainType;
-		public float NoiseValue;
+		[Title("Tile properties", "", TitleAlignments.Centered)]
+		public string tileName;
+		
+		[PreviewField(ObjectFieldAlignment.Center, Height = 64)]
+		public Sprite tileSprite;
 	}
 }
