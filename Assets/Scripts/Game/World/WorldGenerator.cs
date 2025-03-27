@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.World
@@ -13,13 +11,12 @@ namespace Game.World
 		[Header("Grid Settings")]
 		[SerializeField] private int width = 10;
 		[SerializeField] private int height = 10;
-		[SerializeField] private Vector2 tileSize = new Vector2(1, 0.5f);
 
 		private TileGrid _tileGrid;
 
 		private void Awake()
 		{
-			_tileGrid = new TileGrid(tilePrefab, tileSize, transform);
+			_tileGrid = new TileGrid(tilePrefab, transform);
 		}
 
 		private void Start()

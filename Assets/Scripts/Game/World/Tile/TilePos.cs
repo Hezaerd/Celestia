@@ -144,11 +144,6 @@ namespace Game.World
 			return new Vector3(worldX, worldY, 0);
 		}
 		
-		public static TilePos FromWorld(Vector3 worldPos, Vector2 tileSize)
-		{
-			return new TilePos(Mathf.FloorToInt(worldPos.x / tileSize.x), Mathf.FloorToInt(worldPos.y / tileSize.y));
-		}
-		
 		#endregion
 	}
 }

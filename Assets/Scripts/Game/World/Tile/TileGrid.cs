@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Maths;
 using UnityEngine;
 
 namespace Game.World
@@ -10,14 +11,12 @@ namespace Game.World
 	public class TileGrid
 	{
 		private readonly Tile _tilePrefab;
-		private readonly Vector2 _tileSize;
 		private readonly Transform _tileContainer;
 		private readonly Dictionary<TilePos, Tile> _tiles = new Dictionary<TilePos, Tile>();
 		
-		public TileGrid(Tile tilePrefab, Vector2 tileSize, Transform tileContainer)
+		public TileGrid(Tile tilePrefab, Transform tileContainer)
 		{
 			_tilePrefab = tilePrefab;
-			_tileSize = tileSize;
 			_tileContainer = tileContainer;
 		}
 		
@@ -42,13 +41,13 @@ namespace Game.World
 				return tile;
 			
 			Tile newTile = Object.Instantiate(_tilePrefab, _tileContainer);
-			newTile.transform.position = TilePos.ToWorld(position, _tileSize);
+			newTile.transform.position = Isometric.TileToWorld(position);
 			newTile.ApplyData(tileData);
 			newTile.name = $"{tileData.tileName} ({position})";
 			
 			_tiles.Add(position, newTile);
 			
-			return tile;
+			return newTile;
 		}
 	}
 }

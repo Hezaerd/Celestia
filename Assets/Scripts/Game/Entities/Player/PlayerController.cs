@@ -1,76 +1,56 @@
-using Game.Player.States;
+using System;
+using Game.Input;
+using Game.Maths;
 using KBCore.Refs;
-using Core.StateMachine;
-using Core.DependencyInjection;
-using Sirenix.OdinInspector;
 using Unity.Netcode;
 using UnityEngine;
 
 namespace Game.Player
 {
-	[RequireComponent(typeof(Rigidbody2D)) , RequireComponent(typeof(Animator)), RequireComponent(typeof(NetworkObject))]
-	public class PlayerController : NetworkBehaviour
+	[RequireComponent(typeof(Rigidbody2D))]
+	public class PlayerController : MonoBehaviour
 	{
-		// Automaticaly Injected dependencies before Awake
-		[Inject]
-		private readonly InputController _inputController;
+		[Header("Input")]
+		[SerializeField] private InputReader inputReader;
 
-		// Properties
-		[Space(10)]
-		[Title("Player Controller", TitleAlignment = TitleAlignments.Centered)]
+		[Header("Movement Settings")]
+		[SerializeField]private float movementSpeed = 5f;
+
+		[SerializeField, Self, HideInInspector] 
+		private Rigidbody2D rb;
 		
-		[SerializeField] private float maxWalkSpeed = 5f;
-		[SerializeField] private float maxRunSpeed = 8f;
-		[SerializeField] private float acceleration = 25f;
+		private Vector2 _movementInput;
 
-		// Components
-		[SerializeField, Self] private Rigidbody2D rb;
-		[SerializeField, Self] private Animator animator;
-		// Movement
-		private Vector2 _moveDirection;
-		private bool _isRunning;
-
-		// State Machine
-		private StateMachine _stateMachine;
-
-		protected void Awake()
+		private void Start()
 		{
-			SetupStateMachine();
+			Debug.Log($"Input Reader: {inputReader}");
+			inputReader.EnableGameplayInput();
 		}
-		
-		private void SetupStateMachine()
+
+		private void OnEnable()
 		{
-			// Setup state machine
-			_stateMachine = new StateMachine();
-
-			var locomotionState = new BasePlayerLocomotionState(this, animator);
-			var dodgeState = new BasePlayerDodgeState(this, animator);
-
-			_stateMachine.RegisterState(locomotionState);
-			
-			_stateMachine.AddAnyTransition(locomotionState, new FuncPredicate(() => _inputController.MoveInput.magnitude > 0));
-			
-			// Set initial state
-			_stateMachine.SetRoot(locomotionState);
+			inputReader.MoveEvent += OnMove;
 		}
-		private void Update()
+
+		private void OnDisable()
 		{
-			_stateMachine.Update();
+			inputReader.MoveEvent -= OnMove;
 		}
 
 		private void FixedUpdate()
 		{
-			_stateMachine.FixedUpdate();
+			Vector2 movement = _movementInput.normalized * movementSpeed;
+			Vector2 newPosition = rb.position + movement * Time.fixedDeltaTime;
+			
+			rb.MovePosition(newPosition);
 		}
 
-		public void ApplyMovement()
-		{
-			Vector2 moveInput = _inputController.MoveInput;
-			moveInput.Normalize();
+		/// <summary>
+		/// Callback of <see cref="inputReader"/> when movement occurs.
+		/// </summary>
+		/// <param name="movement">The raw movement vector.</param>
+		private void OnMove(Vector2 movement) => _movementInput = movement;
 
-			rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, moveInput * (maxWalkSpeed * (_isRunning ? maxRunSpeed : 1)), acceleration * Time.fixedDeltaTime);
-		}
-		
 		private void OnValidate()
 		{
 			this.ValidateRefs();

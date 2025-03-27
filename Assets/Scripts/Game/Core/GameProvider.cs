@@ -33,12 +33,11 @@ namespace Game.Core
 		public override void RegisterDependencies(IDependencyContainer container)
 		{
 			// Register core systems
-			container.RegisterSingleton<InputController>();
 			
 			Debug.Log("[GameProvider] Successfully registered dependencies.");
 		}
 		
-		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+		// [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		private static void Initialize()
 		{
 			if (_instance != null)
