@@ -1,10 +1,10 @@
 using System;
 using Core.StateMachine;
-using Game.MainMenu.States;
+using game.menu.States;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Game.MainMenu
+namespace game.menu
 {
 	public class MainMenu : MonoBehaviour
 	{

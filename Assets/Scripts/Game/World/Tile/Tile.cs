@@ -1,7 +1,7 @@
 using KBCore.Refs;
 using UnityEngine;
 
-namespace Game.World
+namespace game
 {
 	[RequireComponent(typeof(SpriteRenderer))]
 	public class Tile : MonoBehaviour

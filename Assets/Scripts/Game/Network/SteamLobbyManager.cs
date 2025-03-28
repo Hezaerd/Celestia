@@ -1,5 +1,3 @@
-using System;
-using Core.Logs;
 using Netcode.Transports.Facepunch;
 using Sirenix.OdinInspector;
 using Steamworks;
@@ -7,7 +5,7 @@ using Steamworks.Data;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace Game.Network
+namespace game.network
 {
     public class SteamLobbyManager : MonoBehaviour
     {
@@ -86,7 +84,7 @@ namespace Game.Network
             var isSame = lobby.Owner.Id == steamId;
 
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"Game lobby join requested by {steamId}, owner: {lobby.Owner.Id}, is same: {isSame}");
+                Debug.Log($"[SteamLobbyManager] Game lobby join requested by {steamId}, owner: {lobby.Owner.Id}, is same: {isSame}");
             
             StartClient(steamId);
         }
@@ -94,7 +92,7 @@ namespace Game.Network
         private void OnSteamLobbyInvite(Friend friend, Lobby lobby)
         {
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"Lobby invite from {friend.Id}, lobby: {lobby.Id}");
+                Debug.Log($"[SteamLobbyManager] Lobby invite from {friend.Id}, lobby: {lobby.Id}");
         }
         
         private void OnSteamLobbyMemberLeave(Lobby lobby, Friend friend) { }
@@ -104,7 +102,7 @@ namespace Game.Network
         private void OnSteamLobbyEntered(Lobby lobby)
         {
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"Lobby entered: {lobby.Id}");
+                Debug.Log($"[SteamLobbyManager] Lobby entered: {lobby.Id}");
 
             if (_networkManager.IsHost)
                 return;
@@ -116,7 +114,7 @@ namespace Game.Network
         {
             if (result != Result.OK)
             {
-                Logz.Error("SteamLobbyManager", $"Failed to create lobby: {result}");
+                Debug.LogError($"[SteamLobbyManager] Failed to create lobby: {result}");
                 return;
             }
             
@@ -126,7 +124,7 @@ namespace Game.Network
             lobby.SetJoinable(true);
 
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"Lobby created: {lobby.GetData("name")}/{lobby.Id}");
+                Debug.Log($"[SteamLobbyManager] Lobby created: {lobby.GetData("name")}/{lobby.Id}");
         }
         
         #endregion
@@ -136,13 +134,13 @@ namespace Game.Network
         private void OnClientConnectedCallback(ulong clientId)
         {
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"Client connected: {clientId}");
+                Debug.Log($"[SteamLobbyManager] Client connected: {clientId}");
         }
         
         private void OnClientDisconnectedCallback(ulong clientId)
         {
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"Client disconnected: {clientId}");
+                Debug.Log($"[SteamLobbyManager] Client disconnected: {clientId}");
         }
 
         private void OnServerStarted() { }
@@ -150,13 +148,13 @@ namespace Game.Network
         private void OnClientConnected(ulong clientId)
         {
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"I'm connected: {clientId}");
+                Debug.Log($"[SteamLobbyManager] I'm connected: {clientId}");
         }
         
         private void OnClientDisconnected(ulong clientId)
         {
             if (debugLog)
-                Logz.Info("SteamLobbyManager", $"I'm disconnected: {clientId}");
+                Debug.Log($"[SteamLobbyManager] I'm disconnected: {clientId}");
             
             _networkManager.OnClientConnectedCallback -= OnClientConnected;
             _networkManager.OnClientDisconnectCallback -= OnClientDisconnected;

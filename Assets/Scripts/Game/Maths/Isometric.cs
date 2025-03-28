@@ -1,14 +1,13 @@
-using Game.World;
 using UnityEngine;
 
-namespace Game.Maths
+namespace game.math
 {
 	public static class Isometric
 	{
 		#region Constants
 		
-		public const float TileWidth = 1.0f;
-		public const float TileHeight = 0.5f;
+		public const float TileWidth = 2.0f;
+		public const float TileHeight = 1f;
 		
 		#endregion
 		

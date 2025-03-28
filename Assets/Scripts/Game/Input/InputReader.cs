@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Game.Input
+namespace game.input
 {
 	[CreateAssetMenu(fileName = "New Input Reader", menuName = "Game/Input Reader")]
 	public class InputReader : ScriptableObject, GameInput.IGameplayActions
@@ -12,7 +12,7 @@ namespace Game.Input
 		
 		// Gameplay
 		public event UnityAction<Vector2> MoveEvent = delegate { };
-		public event Action<float> ZoomEvent = delegate { };
+		public event Action<Vector2> ZoomEvent = delegate { };
 		public event Action PrimaryActionEvent = delegate { };
 		public event Action SecondaryActionEvent = delegate { };
 		public event Action DodgeEvent = delegate { };
@@ -50,7 +50,7 @@ namespace Game.Input
 		
 		public void OnZoom(InputAction.CallbackContext context)
 		{
-			ZoomEvent.Invoke(context.ReadValue<float>());
+			ZoomEvent.Invoke(context.ReadValue<Vector2>());
 		}
 		
 		public void OnInteract(InputAction.CallbackContext context)

@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: GrassTile
   m_EditorClassIdentifier: 
   tileName: Grass
-  tileSprite: {fileID: -8339813969014816715, guid: 647ac5cd3023f5c4b97ab90e36ee88db, type: 3}
-  isWalkable: 1
-  isBuildable: 1
+  tileSprite: {fileID: -2298766840281562182, guid: b9948162bd84def4fa1fd96df5ee5d64, type: 3}

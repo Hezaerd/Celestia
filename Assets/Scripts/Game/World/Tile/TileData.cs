@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Game.World
+namespace game
 {
 	[CreateAssetMenu(fileName = "New Tile", menuName = "Game/World/Tile", order = 0)]
 	public class TileData : ScriptableObject

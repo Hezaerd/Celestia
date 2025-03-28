@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Game.Maths;
+using game.math;
 using UnityEngine;
 
-namespace Game.World
+namespace game
 {
 	/// <summary>
 	/// Represents a grid of tiles in the game world.

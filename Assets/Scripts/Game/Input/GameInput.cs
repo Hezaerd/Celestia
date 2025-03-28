@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Game.Input
+namespace game.input
 {
     /// <summary>
     /// Provides programmatic access to <see cref="InputActionAsset" />, <see cref="InputActionMap" />, <see cref="InputAction" /> and <see cref="InputControlScheme" /> instances defined in asset "Assets/Settings/Input/GameInput.inputactions".
@@ -106,7 +106,7 @@ namespace Game.Input
                     ""name"": ""Zoom"",
                     ""type"": ""Value"",
                     ""id"": ""b0c35419-78aa-4be8-a32f-a0ac63ba983e"",
-                    ""expectedControlType"": ""Digital"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

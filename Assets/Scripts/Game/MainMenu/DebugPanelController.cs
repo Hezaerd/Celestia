@@ -2,7 +2,7 @@ using Core.StateMachine;
 using TMPro;
 using UnityEngine;
 
-namespace Game.MainMenu
+namespace game.menu
 {
 	public class DebugPanelController : MonoBehaviour
 	{

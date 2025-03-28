@@ -1,7 +1,7 @@
 using Core.StateMachine;
 using UnityEngine;
 
-namespace Game.MainMenu.States
+namespace game.menu.States
 {
 	public abstract class BaseMenuState : IState
 	{

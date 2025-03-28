@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.MainMenu.States
+namespace game.menu.States
 {
 	public class SoloMenuState : BaseMenuState
 	{
