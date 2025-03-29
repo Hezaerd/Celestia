@@ -203,6 +203,15 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.multiplayer.playmode": {
+      "version": "1.3.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.2"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
       "depth": 1,
@@ -361,6 +370,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "net.tomweiland.riptide": {
+      "version": "https://github.com/RiptideNetworking/Riptide.git?path=/Packages/Core#2.2.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "3282893aa754784596b5978b64227844ed02bc50"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
