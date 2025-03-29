@@ -2,7 +2,8 @@
     "name": "celestia.networking",
     "rootNamespace": "",
     "references": [
-        "GUID:e6d1b044f142c57439dc78fd8f220274"
+        "GUID:e6d1b044f142c57439dc78fd8f220274",
+        "GUID:d9bbc61d820433c42883dc4de8b0e42f"
     ],
     "includePlatforms": [
         "Editor",
